@@ -10,21 +10,21 @@ import (
 	"strings"
 	"time"
 
-	"github.com/k4s/phantomgo"
+	"github.com/hosseinmoghaddam/phantomgo"
 )
 
-//内部对外的下载接口
+// 内部对外的下载接口
 type Webrowser interface {
 	Download(Request) (resp *http.Response, err error)
 }
 
-//浏览器
+// 浏览器
 type Webrowse struct {
 	userAgent string
 	cookieJar http.CookieJar
 }
 
-//new一个浏览器
+// new一个浏览器
 func NewWebrowse() Webrowser {
 	CookiesMemory, _ := cookiejar.New(nil)
 	webrowse := &Webrowse{
@@ -34,7 +34,7 @@ func NewWebrowse() Webrowser {
 	return webrowse
 }
 
-//浏览器参数
+// 浏览器参数
 type WebrowseParam struct {
 	method        string
 	url           *url.URL
